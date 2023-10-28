@@ -1,12 +1,18 @@
 extends KinematicBody2D
 
 export var movement_speed := 200.0
+export var drag_factor := 0.13
+
+var _velocity := Vector2.ZERO
 
 
 func _physics_process(_delta: float) -> void:
 	var direction := _get_direction()
-
-	var _result := move_and_slide(direction * movement_speed)
+	var desired_velocity := direction * movement_speed
+	var steering_vector := desired_velocity - _velocity
+	
+	_velocity += steering_vector * drag_factor
+	_velocity = move_and_slide(_velocity)
 
 
 func _get_direction() -> Vector2:
