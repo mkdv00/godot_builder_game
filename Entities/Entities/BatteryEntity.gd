@@ -10,10 +10,7 @@ onready var indicator := $Indicator
 
 
 func _ready() -> void:
-	_set_stored_power(stored_power)
-	
 	if source.output_direction != 15:
-
 		receiver.input_direction = 15 ^ source.output_direction
 
 
@@ -33,9 +30,7 @@ func _set_stored_power(value: float) -> void:
 		if stored_power >= max_storage
 		else min((max_storage - stored_power) / receiver.power_required, 1.0)
 	)
-
 	source.efficiency = (0.0 if stored_power <= 0 else min(stored_power / source.power_amount, 1.0))
-	
 	indicator.material.set_shader_param("amount", stored_power / max_storage)
 
 

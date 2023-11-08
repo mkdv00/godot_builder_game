@@ -14,30 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Entities/Blueprints/BlueprintEntity.gd"
 }, {
-"base": "Node2D",
+"base": "Node",
 "class": "Entity",
 "language": "GDScript",
-"path": "res://Entities/Entity.gd"
+"path": "res://Entities/Entities/Entity.gd"
 }, {
 "base": "Reference",
 "class": "EntityTracker",
 "language": "GDScript",
 "path": "res://Systems/EntityTracker.gd"
-}, {
-"base": "Node2D",
-"class": "GroundItem",
-"language": "GDScript",
-"path": "res://Entities/GroundItem.gd"
-}, {
-"base": "HBoxContainer",
-"class": "InventoryBar",
-"language": "GDScript",
-"path": "res://GUI/Inventory/InventoryBar.gd"
-}, {
-"base": "Panel",
-"class": "InventoryPanel",
-"language": "GDScript",
-"path": "res://GUI/Inventory/InventoryPanel.gd"
 }, {
 "base": "Node",
 "class": "PowerReceiver",
@@ -53,11 +38,6 @@ _global_script_classes=[ {
 "class": "PowerSystem",
 "language": "GDScript",
 "path": "res://Systems/Power/PowerSystem.gd"
-}, {
-"base": "InventoryBar",
-"class": "QuickBar",
-"language": "GDScript",
-"path": "res://GUI/Inventory/QuickBar.gd"
 }, {
 "base": "Reference",
 "class": "Types",
@@ -78,13 +58,9 @@ _global_script_class_icons={
 "BlueprintEntity": "",
 "Entity": "",
 "EntityTracker": "",
-"GroundItem": "",
-"InventoryBar": "",
-"InventoryPanel": "",
 "PowerReceiver": "",
 "PowerSource": "",
 "PowerSystem": "",
-"QuickBar": "",
 "Types": "",
 "WireBlueprint": "",
 "WireEntity": ""
@@ -92,23 +68,18 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot-2d-builder-sbs"
+config/name="godot-2d-builder Starter"
 run/main_scene="res://Simulation.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Events="*res://Autoload/Events.gd"
-Library="*res://Autoload/Library.gd"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
-
-[game_gui]
-
-inventory_size=75.0
 
 [input]
 

@@ -1,26 +1,28 @@
 extends Node
 
+# FLOOR_ID := 0
 const BARRIER_ID := 1
 const INVISIBLE_BARRIER_ID := 2
 
 export var simulation_speed := 1.0 / 30.0
 
+# we'll pass EntityTracker as a Node2D child with EntityTracker script to EntityPlacer
+# reminder: EntityTracker is a helper object, it doesn't have its own scene
 var _tracker := EntityTracker.new()
 
-onready var _power_system := PowerSystem.new()
 onready var _ground := $GameWorld/GroundTiles
 onready var _entity_placer := $GameWorld/YSort/EntityPlacer
 onready var _player := $GameWorld/YSort/Player
 onready var _flat_entities := $GameWorld/FlatEntities
-onready var _gui := $CanvasLayer/GUI
-onready var _timer := $Timer
-
+onready var _timer := $GameWorld/Timer
+# reminder: PowerSystem is a helper object, it doesn't have its own scene
+onready var _power_system := PowerSystem.new()
 
 func _ready() -> void:
 	_timer.start(simulation_speed)
-	_entity_placer.setup(_gui, _tracker, _ground, _flat_entities, _player)
-	
+	_entity_placer.setup(_tracker, _ground, _flat_entities, _player)
 	var barriers: Array = _ground.get_used_cells_by_id(BARRIER_ID)
+
 	for cellv in barriers:
 		_ground.set_cellv(cellv, INVISIBLE_BARRIER_ID)
 

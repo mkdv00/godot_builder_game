@@ -21,13 +21,11 @@ const DIRECTIONS_DATA := {
 
 onready var sprite := $Sprite
 
-
 static func set_sprite_for_direction(sprite: Sprite, directions: int) -> void:
 	sprite.region_rect = get_region_for_direction(directions)
-
-
+	
 static func get_region_for_direction(directions: int) -> Rect2:
 	if not DIRECTIONS_DATA.has(directions):
 		directions = 10
-
+	
 	return DIRECTIONS_DATA[directions]
